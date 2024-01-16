@@ -59,19 +59,19 @@ fn get_password_strength(password: &str) -> PasswordStrength {
         }
     }
 
-    // if has_number is true and has_letter is true and has_special is true, return VeryStrong
-    if has_number & has_letter & has_special_characters {
+    // A very strong password contains letters, numbers, and special characters and is at least eight characters.
+    if has_number & has_letter & has_special_characters & (password.len() > 7) {
         return PasswordStrength::VeryStrong;
     }
-    // if has_number is true and has_letter is true and has_special is false, return Strong
-    else if has_number & has_letter & !has_special_characters {
+    // A strong password contains letters and at least one number and is at least eight characters.
+    else if has_number & has_letter & (password.len() > 7) {
         return PasswordStrength::Strong;
     }
-    // if has_number is false and has_letter is true and has_special is false, return Weak
-    else if !has_number & has_letter & !has_special_characters {
+    // A weak password contains only letters and is fewer than eight characters
+    else if has_letter {
         return PasswordStrength::Weak;
     }
-    // if has_number is true and has_letter is false and has_special is false, return VeryWeak
+    // A very weak password contains only numbers and is fewer than eight characters.
     else {
         return PasswordStrength::VeryWeak;
     }
@@ -112,6 +112,17 @@ fn get_input<T: std::str::FromStr>(prompt: &str) -> T {
 
 fn main() {
     // get input_password, "Enter Password: "
+    let input_password: String = get_input("Enter Password: ");
     // get password strength
+    let password_strength: &str = match get_password_strength(&input_password) {
+        PasswordStrength::Strong => "strong",
+        PasswordStrength::VeryStrong => "very strong",
+        PasswordStrength::Weak => "weak",
+        PasswordStrength::VeryWeak => "very weak",
+    };
     // The password '{}' is a {very weak | weak | strong | very strong} password.
+    println!(
+        "The password '{}' is a {} password.",
+        input_password, password_strength
+    );
 }
