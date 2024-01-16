@@ -41,9 +41,20 @@ fn get_password_strength(password: &str) -> PasswordStrength {
         *password_chars.entry(c).or_insert(0) += 1;
     }
     // loop through the keys of the counter.
-    // if the key contains in number, make has_number true
-    // if the key contains in letter, make has_letter true
-    // if the key contains in special, make has_special true
+    for key in password_chars.keys() {
+        // if the key contains in number, make has_number true
+        if let Some(_) = NUMBERS.get(&key) {
+            has_number = true;
+        }
+        // if the key contains in letter, make has_letter true
+        if let Some(_) = LETTERS.get(&key) {
+            has_letter = true;
+        }
+        // if the key contains in special, make has_special true
+        if let Some(_) = SPECIAL_CHARACTERS.get(&key) {
+            has_special_characters = true;
+        }
+    }
 
     // if has_number is true and has_letter is false and has_special is false, return VeryWeak
     // if has_number is false and has_letter is true and has_special is false, return Weak
