@@ -19,6 +19,7 @@ use std::collections::HashMap;
 // The password 'abc123xyz' is a strong password.
 // The password '1337h@xor!' is a very strong password.
 
+#[derive(PartialEq, Debug)]
 enum PasswordStrength {
     VeryWeak = 0,
     Weak = 1,
