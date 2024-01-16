@@ -42,16 +42,17 @@ fn get_password_strength(password: &str) -> PasswordStrength {
     }
     // loop through the keys of the counter.
     for key in password_chars.keys() {
+        let key_str = key.to_string();
         // if the key contains in number, make has_number true
-        if let Some(_) = NUMBERS.get(&key) {
+        if NUMBERS.contains(&key_str) {
             has_number = true;
         }
         // if the key contains in letter, make has_letter true
-        if let Some(_) = LETTERS.get(&key) {
+        if LETTERS.contains(&key_str) {
             has_letter = true;
         }
         // if the key contains in special, make has_special true
-        if let Some(_) = SPECIAL_CHARACTERS.get(&key) {
+        if SPECIAL_CHARACTERS.contains(&key_str) {
             has_special_characters = true;
         }
     }
