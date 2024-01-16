@@ -27,7 +27,7 @@ enum PasswordStrength {
 fn get_password_strength(password: &str) -> PasswordStrength {}
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::{get_password_strength, PasswordStrength};
 
     #[test]
     fn test_get_password_strength() {
