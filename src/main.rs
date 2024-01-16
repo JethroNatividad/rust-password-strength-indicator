@@ -30,6 +30,9 @@ fn get_password_strength(password: &str) -> PasswordStrength {
     const LETTERS: &str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const SPECIAL_CHARACTERS: &str = "!@#$%^&*()_-+=[]{}|;:'\",.<>?/";
     // make bool variables has_number, has_letter, has_special
+    let mut has_number: bool = false;
+    let mut has_letter: bool = false;
+    let mut has_special_characters: bool = false;
     // make a frequency counter for the characters in the password
     // loop through the keys of the counter.
     // if the key contains in number, make has_number true
