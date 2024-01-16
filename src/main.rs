@@ -92,5 +92,7 @@ mod tests {
 }
 
 fn main() {
-    println!("Hello, world!");
+    // get input_password, "Enter Password: "
+    // get password strength
+    // The password '{}' is a {very weak | weak | strong | very strong} password.
 }
