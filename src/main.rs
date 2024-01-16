@@ -17,6 +17,13 @@
 // The password 'abc123xyz' is a strong password.
 // The password '1337h@xor!' is a very strong password.
 
+enum PasswordStrength {
+    VeryWeak = 0,
+    Weak = 1,
+    Strong = 2,
+    VeryStrong = 3,
+}
+
 fn get_password_strength(password: &str) -> PasswordStrength {}
 #[cfg(test)]
 mod tests {
