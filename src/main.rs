@@ -37,6 +37,9 @@ fn get_password_strength(password: &str) -> PasswordStrength {
     let mut has_special_characters: bool = false;
     // make a frequency counter for the characters in the password
     let mut password_chars: HashMap<char, i64> = HashMap::new();
+    for c in password.chars() {
+        *password_chars.entry(c).or_insert(0) += 1;
+    }
     // loop through the keys of the counter.
     // if the key contains in number, make has_number true
     // if the key contains in letter, make has_letter true
