@@ -24,7 +24,20 @@ enum PasswordStrength {
     VeryStrong = 3,
 }
 
-fn get_password_strength(password: &str) -> PasswordStrength {}
+fn get_password_strength(password: &str) -> PasswordStrength {
+    // make multiple strings of number, letter, and special.
+    // make bool variables has_number, has_letter, has_special
+    // make a frequency counter for the characters in the password
+    // loop through the keys of the counter.
+    // if the key contains in number, make has_number true
+    // if the key contains in letter, make has_letter true
+    // if the key contains in special, make has_special true
+
+    // if has_number is true and has_letter is false and has_special is false, return VeryWeak
+    // if has_number is false and has_letter is true and has_special is false, return Weak
+    // if has_number is true and has_letter is true and has_special is false, return Strong
+    // if has_number is true and has_letter is true and has_special is true, return VeryStrong
+}
 #[cfg(test)]
 mod tests {
     use super::{get_password_strength, PasswordStrength};
