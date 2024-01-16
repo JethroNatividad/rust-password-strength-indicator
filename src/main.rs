@@ -74,6 +74,7 @@ fn get_password_strength(password: &str) -> PasswordStrength {
         return PasswordStrength::VeryWeak;
     }
 }
+
 #[cfg(test)]
 mod tests {
     use super::{get_password_strength, PasswordStrength};
