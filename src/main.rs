@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 // Write a program that determines a passwords strength
 // • A very weak password contains only numbers and is
 // fewer than eight characters.
@@ -33,12 +35,12 @@ fn get_password_strength(password: &str) -> PasswordStrength {
     let mut has_number: bool = false;
     let mut has_letter: bool = false;
     let mut has_special_characters: bool = false;
-    // make a list for the char in the password
-    let mut password_chars: Vec<char>
-    // loop through the list of the char.
-    // if the char contains in number, make has_number true
-    // if the char contains in letter, make has_letter true
-    // if the char contains in special, make has_special true
+    // make a frequency counter for the characters in the password
+    let mut password_chars: HashMap<char, i64> = HashMap::new();
+    // loop through the keys of the counter.
+    // if the key contains in number, make has_number true
+    // if the key contains in letter, make has_letter true
+    // if the key contains in special, make has_special true
 
     // if has_number is true and has_letter is false and has_special is false, return VeryWeak
     // if has_number is false and has_letter is true and has_special is false, return Weak
