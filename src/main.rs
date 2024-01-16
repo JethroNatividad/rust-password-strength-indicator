@@ -8,6 +8,10 @@
 // • A very strong password contains letters, numbers, and
 // special characters and is at least eight characters.
 
+// Inputs: password
+// Process: checks password strength
+// Outputs: The password '{}' is a {very weak | weak | strong | very strong} password.
+
 fn main() {
     println!("Hello, world!");
 }
