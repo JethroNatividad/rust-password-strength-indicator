@@ -26,6 +26,9 @@ enum PasswordStrength {
 
 fn get_password_strength(password: &str) -> PasswordStrength {
     // make multiple strings of number, letter, and special.
+    const NUMBERS: &str = "0123456789";
+    const LETTERS: &str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const SPECIAL_CHARACTERS: &str = "!@#$%^&*()_-+=[]{}|;:'\",.<>?/";
     // make bool variables has_number, has_letter, has_special
     // make a frequency counter for the characters in the password
     // loop through the keys of the counter.
