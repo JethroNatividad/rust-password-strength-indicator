@@ -56,24 +56,21 @@ fn get_password_strength(password: &str) -> PasswordStrength {
         }
     }
 
-    // if has_number is true and has_letter is false and has_special is false, return VeryWeak
-    if has_number & !has_letter & !has_special_characters {
-        return PasswordStrength::VeryWeak;
-    }
-
-    // if has_number is false and has_letter is true and has_special is false, return Weak
-    if !has_number & has_letter & !has_special_characters {
-        return PasswordStrength::Weak;
-    }
-
-    // if has_number is true and has_letter is true and has_special is false, return Strong
-    if has_number & has_letter & !has_special_characters {
-        return PasswordStrength::Strong;
-    }
-
     // if has_number is true and has_letter is true and has_special is true, return VeryStrong
     if has_number & has_letter & has_special_characters {
         return PasswordStrength::VeryStrong;
+    }
+    // if has_number is true and has_letter is true and has_special is false, return Strong
+    else if has_number & has_letter & !has_special_characters {
+        return PasswordStrength::Strong;
+    }
+    // if has_number is false and has_letter is true and has_special is false, return Weak
+    else if !has_number & has_letter & !has_special_characters {
+        return PasswordStrength::Weak;
+    }
+    // if has_number is true and has_letter is false and has_special is false, return VeryWeak
+    else {
+        return PasswordStrength::VeryWeak;
     }
 }
 #[cfg(test)]
