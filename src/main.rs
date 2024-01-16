@@ -17,6 +17,7 @@
 // The password 'abc123xyz' is a strong password.
 // The password '1337h@xor!' is a very strong password.
 
+fn get_password_strength(password: &str) -> PasswordStrength {}
 #[cfg(test)]
 mod tests {
     use super::*;
