@@ -1,4 +1,6 @@
 use std::collections::HashMap;
+use std::io;
+use std::io::Write;
 
 // Write a program that determines a passwords strength
 // • A very weak password contains only numbers and is
@@ -88,6 +90,23 @@ mod tests {
             get_password_strength("1337h@xor!"),
             PasswordStrength::VeryStrong
         );
+    }
+}
+
+fn get_input<T: std::str::FromStr>(prompt: &str) -> T {
+    loop {
+        print!("{}", prompt);
+        io::stdout().flush().unwrap();
+
+        let mut input = String::new();
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read input");
+
+        match input.trim().parse() {
+            Ok(value) => break value,
+            Err(_) => println!("Invalid input. Please try again."),
+        }
     }
 }
 
